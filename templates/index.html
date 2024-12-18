@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Определение динамики цены</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container" style="margin-top: 100px;"> 
+        <h1>Определение динамики цены на электричество</h1>
+        <p class="description">Введите данные, чтобы узнать динамику.</p>
+        
+        <form action="/predict" method="post">
+
+            <div class="form-group">
+                <label for="date">Дата (число):</label>
+                <input type="number" name="date" placeholder="Например, 0.0" style="width: 100%;" required>
+            </div <div class="form-group">
+                <label for="day">День (число):</label>
+                <input type="number" name="day" placeholder="Например, 1 (целое число)" style="width: 100%;" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="period">Период (число):</label>
+                <input type="number" step="0.000001" name="period" placeholder="Например, 0.051699" style="width: 100%;" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="nswprice">Цена NSW:</label>
+                <input type="number" step="0.000001" name="nswprice" placeholder="Например, 0.056443" style="width: 100%;" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="nswdemand">Спрос NSW:</label>
+                <input type="number" step="0.000001" name="nswdemand" placeholder="Например, 0.439155" style="width: 100%;" required>
+            </div>
+
+            <div class="form-group">
+                <label for="vicprice">Цена VIC:</label>
+                <input type="number" step="0.000001" name="vicprice" placeholder="Например, 0.003467" style="width: 100%;" required>
+            </div>
+
+            <div class="form-group">
+                <label for="vicdemand">Спрос VIC:</label>
+                <input type="number" step="0.000001" name="vicdemand" placeholder="Например, 0.422915" style="width: 100%;" required>
+            </div>
+
+            <div class="form-group">
+                <label for="transfer">Передача:</label>
+                <input type="number" step="0.000001" name="transfer" placeholder="Например, 0.414912" style="width: 100%;" required>
+            </div>
+
+            <button type="submit" class="btn">Определить динамику</button>
+        </form>
+    </div>
+</body>
+</html>
